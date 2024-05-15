@@ -1,0 +1,114 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import ComponentCard from "../components/ComponentCard.astro";
+import { getCollection } from "astro:content";
+
+const components = await getCollection("components");
+
+const categoryMap = components.reduce((acc: any, component) => {
+  const category = component.data.category;
+  if (category) {
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(component);
+  }
+  return acc;
+}, {});
+
+categoryMap['All'] = components;
+const sortedCategories = ['All', ...Object.keys(categoryMap).filter(c => c !== 'All')];
+---
+
+<DefaultLayout>
+    <div class="max-w-screen-2xl mx-auto p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-6 gap-4 lg:gap-8 min-h-[350px]">
+            
+            <!-- Menu -->
+            <ul class="space-y-1 lg:col-span-1">
+                {sortedCategories.map(category => (
+                    <li>
+                    <span
+                        data-category={category}
+                        class="category-link flex flex-row justify-between rounded px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer select-none"
+                    >
+                        <span>{category}</span>
+                        <span>({categoryMap[category].length})</span>
+                    </span>
+                    </li>
+                ))}
+            </ul>
+            
+            <!-- Cards -->
+            <div class="rounded lg:col-span-5 flex justify-center items-center">
+                <div class="flex flex-wrap justify-center gap-4">
+                    {components.map((component: any) => (
+                        <div
+                            class="component-card"
+                            data-category={component.data.category}
+                        >
+                            <ComponentCard
+                                
+                                displayName={component.data.name}
+                                slug={component.slug}
+                                componentHtml={component.body}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</DefaultLayout>
+
+<script define:vars={{}}>
+    const categoryLinks = document.querySelectorAll('.category-link');
+    const componentCards = document.querySelectorAll('.component-card');
+
+    const selectedCategory = localStorage.getItem('selectedCategory') || 'All';
+
+    // Highlight the selected category link
+    categoryLinks.forEach(link => {
+        const category = link.getAttribute('data-category');
+        if (category === selectedCategory) {
+          link.classList.add('bg-gray-200', 'text-gray-700');
+        }
+    });
+
+    // Show component cards based on the selected category
+    componentCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (selectedCategory === 'All' || cardCategory === selectedCategory) {
+          card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          
+          // Remove highlight from all links
+          categoryLinks.forEach(link => link.classList.remove('bg-gray-200', 'text-gray-700'));
+          
+          // Highlight the selected link
+          link.classList.add('bg-gray-200', 'text-gray-700');
+          
+          const selectedCategory = link.getAttribute('data-category');
+          
+          // Save selected category to localStorage
+          localStorage.setItem('selectedCategory', selectedCategory);
+          
+          // Show or hide component cards based on the selected category
+          componentCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (selectedCategory === 'All' || cardCategory === selectedCategory) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+</script>

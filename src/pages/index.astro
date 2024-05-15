@@ -1,0 +1,17 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout>
+    <div class="max-w-screen-2xl mx-auto p-6 flex justify-center items-center">
+        <a
+            href="/explore"
+            class="flex justify-center items-center w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500 cursor-pointer select-none">
+            <span>Explore</span>
+        </a>
+    </div>
+</DefaultLayout>
+
+<script define:vars={{}}>
+    localStorage.removeItem('selectedCategory');
+</script>

@@ -1,11 +1,13 @@
-# Nono-UI 👀
+# <img src="public/favicon.png" width="32" height="35" alt="Nono-UI Logo"> Nono-UI
+Free Open Source Tailwind CSS Components
 
+## 🚀 Try it
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/RednibCoding/nono-ui)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/RednibCoding/nono-ui)
 
 > 🧑‍🚀 **Seasoned astronaut?** Have fun!
 
-## 🚀 Project Structure
+## 👀 Project Structure
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 

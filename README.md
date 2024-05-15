@@ -5,7 +5,7 @@ Free Open Source Tailwind CSS Components
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/RednibCoding/nono-ui)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/RednibCoding/nono-ui)
 
-[<img src="public/nnui-button.png" width="25%" height="25%" alt="Nono-UI Logo">](https://nono-ui.netlify.app)
+[<img src="public/nnui-button.png" width="20%" height="20%" alt="Nono-UI Logo">](https://nono-ui.netlify.app)
 
 > 🧑‍🚀 **Seasoned astronaut?** Have fun!
 

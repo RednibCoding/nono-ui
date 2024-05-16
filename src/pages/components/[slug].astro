@@ -59,12 +59,6 @@ const { component } = Astro.props;
             <div class="mt-6">
                 <div id="tab-content-view" class="tab-content">
                     <!-- View content here -->
-                    <!-- <div class="flex flex-row gap-2 justify-end w-full mb-4">
-                        <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Mobile</button>
-                        <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Small</button>
-                        <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Medium</button>
-                        <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Large</button>
-                    </div> -->
                     <div set:html={component.body} class="bg-[url('/grid.svg')] bg-repeat min-h-[450px] flex justify-center items-center rounded border border-gray-300 p-4 shadow-md">
                     </div>
                 </div>

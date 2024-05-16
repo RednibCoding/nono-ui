@@ -28,10 +28,10 @@ const { component } = Astro.props;
 ---
 
 <DefaultLayout>
-    <div class="max-w-screen-2xl mx-auto p-6">
+    <div class="container mx-auto p-6">
 
         <!-- Back link -->
-        <a href="/explore" class="inline-flex items-center text-md font-medium text-gray-500 hover:text-gray-700 select-none">
+        <a href="/explore" class="inline-flex items-center text-md font-medium text-gray-500 hover:text-gray-700 transition-colors duration-300 select-none">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
@@ -42,13 +42,13 @@ const { component } = Astro.props;
         <div class="my-10 select-none">
             <nav class="flex gap-2" aria-label="Tabs">
                 <span
-                    class="tab-link w-[80px] text-center bg-gray-100 shrink-0 rounded p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700 cursor-pointer"
+                    class="tab-link w-[80px] text-center bg-gray-100 shrink-0 rounded p-2 text-sm font-medium text-gray-500 hover:bg-gray-200 hover:text-gray-700 cursor-pointer transition-colors duration-300"
                     data-tab="View"
                 >
                     View
                 </span>
                 <span
-                    class="tab-link w-[80px] text-center shrink-0 rounded p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700 cursor-pointer"
+                    class="tab-link w-[80px] text-center shrink-0 rounded p-2 text-sm font-medium text-gray-500 hover:bg-gray-200 hover:text-gray-700 cursor-pointer transition-colors duration-300"
                     data-tab="HTML"
                 >
                     HTML
@@ -63,12 +63,12 @@ const { component } = Astro.props;
             <div class="mt-6">
                 <div id="tab-content-view" class="tab-content">
                     <!-- View content here -->
-                    <div set:html={component.body} class="bg-[url('/grid.svg')] bg-repeat min-h-[450px] flex justify-center items-center rounded border border-gray-300 p-4 shadow-md">
+                    <div set:html={component.body} class="bg-[url('/grid.svg')] bg-repeat min-h-[450px] flex justify-center items-center rounded border border-gray-300 p-4 shadow-md transition-shadow duration-300 hover:shadow-lg">
                     </div>
                 </div>
                 <div id="tab-content-html" class="tab-content hidden relative">
                     <!-- HTML content here -->
-                    <button id="copy-btn" onclick="() => copyToClipboard(component.body)" class="w-[40px] h-[40px] bg-gray-100 hover:bg-gray-200 rounded absolute right-8 top-2">
+                    <button id="copy-btn" onclick="() => copyToClipboard(component.body)" class="w-[40px] h-[40px] bg-gray-100 hover:bg-gray-200 rounded absolute right-8 top-2 transition-colors duration-300">
                         <img id="copy-btn-img" class="ml-2.5" src="/copy.svg" width="20" height="20" alt="copy">
                     </button>
                     <Code class="rounded p-4 max-h-[450px] select-text" code={component.body.trim()} lang="html" theme="dark-plus" />
@@ -108,13 +108,13 @@ const { component } = Astro.props;
             if (selectedTab === "View") {
                 tabContentView?.classList.remove("hidden");
                 tabContentHtml?.classList.add("hidden");
-                tabLinks[0].classList.add("bg-gray-100", "text-gray-700");
-                tabLinks[1].classList.remove("bg-gray-100", "text-gray-700");
+                tabLinks[0].classList.add("bg-gray-200", "text-gray-700");
+                tabLinks[1].classList.remove("bg-gray-200", "text-gray-700");
             } else if (selectedTab === "HTML") {
                 tabContentView?.classList.add("hidden");
                 tabContentHtml?.classList.remove("hidden");
-                tabLinks[0].classList.remove("bg-gray-100", "text-gray-700");
-                tabLinks[1].classList.add("bg-gray-100", "text-gray-700");
+                tabLinks[0].classList.remove("bg-gray-200", "text-gray-700");
+                tabLinks[1].classList.add("bg-gray-200", "text-gray-700");
             }
         });
     });

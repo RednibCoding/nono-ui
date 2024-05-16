@@ -59,20 +59,20 @@ const { component } = Astro.props;
             <div class="mt-6">
                 <div id="tab-content-view" class="tab-content">
                     <!-- View content here -->
-                    <div class="flex flex-row gap-2 justify-end w-full mb-4">
+                    <!-- <div class="flex flex-row gap-2 justify-end w-full mb-4">
                         <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Mobile</button>
                         <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Small</button>
                         <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Medium</button>
                         <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-50 rounded text-gray-500">Large</button>
-                    </div>
+                    </div> -->
                     <div set:html={component.body} class="bg-[url('/grid.svg')] bg-repeat min-h-[450px] flex justify-center items-center rounded border border-gray-300 p-4 shadow-md">
                     </div>
                 </div>
-                <div id="tab-content-html" class="tab-content hidden">
+                <div id="tab-content-html" class="tab-content hidden relative">
                     <!-- HTML content here -->
-                    <div class="flex flex-row gap-2 justify-end w-full mb-4">
-                        <button class="w-[120px] h-[40px] bg-gray-100 hover:bg-gray-300 rounded text-gray-500">Copy HTML</button>
-                    </div>
+                    <button id="copy-btn" onclick="() => copyToClipboard(component.body)" class="w-[40px] h-[40px] bg-gray-100 hover:bg-gray-200 rounded absolute right-8 top-2">
+                        <img id="copy-btn-img" class="ml-2.5" src="/copy.svg" width="20" height="20" alt="copy">
+                    </button>
                     <Code class="rounded p-4 max-h-[450px] select-text" code={component.body.trim()} lang="html" theme="dark-plus" />
                 </div>
             </div>
@@ -80,13 +80,30 @@ const { component } = Astro.props;
     </div>
 </DefaultLayout>
 
-<script define:vars={{}}>
+<script define:vars={{component}}>
     const tabLinks = document.querySelectorAll(".tab-link");
     const tabContentView = document.getElementById("tab-content-view");
     const tabContentHtml = document.getElementById("tab-content-html");
 
+    const copybtn = document.getElementById("copy-btn");
+    const copybtnImg = document.getElementById("copy-btn-img");
+
+    copybtn.addEventListener("click", event => {
+        navigator.clipboard.writeText(component.body).then(function() {
+            // Change the image source to check.svg
+            copybtnImg.src = "/check.svg";
+
+            // After 3 seconds, change it back to copy.svg
+            setTimeout(function() {
+                copybtnImg.src = "/copy.svg";
+            }, 3000);
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    });
+
     tabLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
+        link.addEventListener("click", event => {
             event.preventDefault();
             const selectedTab = event.target?.getAttribute("data-tab");
 

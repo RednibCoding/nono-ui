@@ -24,11 +24,11 @@ const components = await getCollection("components");
             type="text"
             id="Search"
             placeholder="Search..."
-            class="w-full rounded border-gray-200 py-2.5 shadow-sm sm:text-sm p-4 focus:shadow-md focus:outline-none"
+            class="w-full rounded border-gray-200 py-2.5 shadow-sm sm:text-sm p-4 focus:shadow-md outline-none"
           />
           
           <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
-            <button type="button" class="text-gray-600 hover:text-gray-700">
+            <button type="button" class="text-gray-600 hover:text-gray-700" tabindex="-1">
               <span class="sr-only">Search</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,6 +60,12 @@ const components = await getCollection("components");
   const searchInput = document.getElementById("Search");
   const searchResults = document.getElementById("search-results");
 
+  searchInput.addEventListener("blur", (event) => {
+    searchResults.innerHTML = "";
+    searchResults.classList.add("hidden");
+    searchInput.value = "";
+  });
+
   searchInput.addEventListener("input", (event) => {
     const searchTerm = event.target.value.toLowerCase();
     searchResults.innerHTML = "";
@@ -76,7 +82,7 @@ const components = await getCollection("components");
             const a = document.createElement("a");
             a.href = `/components/${component.slug}`;
             a.textContent = component.data.name;
-            a.classList.add("block", "w-full", "h-full");
+            a.classList.add("block", "w-full", "h-full", "outline-none");
 
             li.appendChild(a);
             searchResults.appendChild(li);

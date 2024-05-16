@@ -6,7 +6,7 @@ Welcome to the Nono-UI repository. This project provides a collection of ready-t
 ### 🚀 Try it:
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/RednibCoding/nono-ui)
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/RednibCoding/nono-ui)
-[<img src="public/nnui-button.png" width="15%" height="15%" alt="Nono-UI Logo">](https://nono-ui.netlify.app)
+[<img src="public/nnui-button.png" width="18%" height="18%" alt="Nono-UI Logo">](https://nono-ui.netlify.app)
 
 ## Table of Contents
 

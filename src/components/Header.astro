@@ -60,12 +60,6 @@ const components = await getCollection("components");
   const searchInput = document.getElementById("Search");
   const searchResults = document.getElementById("search-results");
 
-  searchInput.addEventListener("blur", (event) => {
-    searchResults.innerHTML = "";
-    searchResults.classList.add("hidden");
-    searchInput.value = "";
-  });
-
   searchInput.addEventListener("input", (event) => {
     const searchTerm = event.target.value.toLowerCase();
     searchResults.innerHTML = "";
@@ -102,6 +96,14 @@ const components = await getCollection("components");
     } else {
       searchResults.classList.add("hidden");
     }
+  });
+
+  searchInput.addEventListener("blur", (event) => {
+    setTimeout(() => {
+      searchResults.innerHTML = "";
+      searchResults.classList.add("hidden");
+      searchInput.value = "";
+    }, 160);
   });
 </script>
 

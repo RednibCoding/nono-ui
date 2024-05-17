@@ -69,7 +69,9 @@ category: A category
 
 <!-- Html code goes here -->
 ```
->Note: The category name can be an existing category (see other components) or a new category by defining a new name. The component navigation tree on the website will be built automatically, so no further action is needed.
+>Note 1: The category name can be an existing category (see other components) or a new category by defining a new name. The component navigation tree on the website will be built automatically, so no further action is needed.
+
+>Note 2: Sometimes when adding a new component, it may not be displayed correctly. Restarting the dev server should resolve this issue. If the problem persists, please file a bug report.
 
 ## Contributing
 

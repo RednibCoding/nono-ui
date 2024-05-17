@@ -5,7 +5,8 @@ const components = await getCollection("components");
 ---
 
 <header class="bg-blue-600 text-white py-6">
-  <div class="container mx-auto px-6 flex justify-between items-center">
+  <div class="container mx-auto px-6 flex flex-col gap-4 sm:flex-row sm:justify-between items-center">
+
     <div class="text-center sm:text-left text-white">
         <a href="/"
           class="flex flex-row gap-2 items-center">
@@ -13,7 +14,8 @@ const components = await getCollection("components");
           <h1 class="text-3xl font-bold">Nono-UI</h1>
         </a>
       </div>
-    <div class="relative text-gray-500 w-[200px] sm:w-[300px]">
+
+    <div class="relative text-gray-500 w-full sm:w-[300px]">
         <label for="Search" class="sr-only"> Search </label>
         
         <input

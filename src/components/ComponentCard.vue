@@ -49,14 +49,17 @@ const scaleContent = () => {
     if (contentWidth > containerWidth || contentHeight > containerHeight) {
       const scaleWidth = containerWidth / contentWidth;
       const scaleHeight = containerHeight / contentHeight;
-      const scale = Math.min(scaleWidth, scaleHeight)*2.4;
+      const scale = Math.min(scaleWidth, scaleHeight);
 
-      content.style.transform = `scale(${scale})`;
+      // Adjust this to finetune the preview scaling
+      const finalScale = scale*2.2;
+
+      content.style.transform = `scale(${finalScale})`;
       content.style.transformOrigin = 'top left';
 
       // Center the scaled content
-      const scaledWidth = contentWidth * scale;
-      const scaledHeight = contentHeight * scale;
+      const scaledWidth = contentWidth * finalScale;
+      const scaledHeight = contentHeight * finalScale;
       const offsetX = (containerWidth - scaledWidth) / 2;
       const offsetY = (containerHeight - scaledHeight) / 2;
 

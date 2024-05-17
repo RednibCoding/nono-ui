@@ -21,6 +21,7 @@ const props = defineProps({
 });
 
 // Replace all <a> and </a> tags with <span> and </span>
+// Note: <a>-tags mess up the preview
 const sanitizedContent = computed(() => {
   return props.component.body
     .replace(/<a\b/g, "<span")

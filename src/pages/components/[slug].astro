@@ -59,24 +59,26 @@ const bodyWithoutHrefs = component.body
 
         <!-- Tabbar -->
         <div class="my-10 select-none">
-            <nav class="flex gap-2" aria-label="Tabs">
-                <span
-                    class="tab-link w-[80px] text-center bg-[#4e74bb] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
-                    data-tab="View"
-                >
-                    View
-                </span>
-                <span
-                    class="tab-link w-[80px] text-center bg-[#8bb7ff8c] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
-                    data-tab="HTML"
-                >
-                    HTML
-                </span>
-            </nav>
+            <div class="flex items-center justify-between mt-10 mb-3">
+                <h1 class="text-2xl font-bold text-[#4e74bb] text-[28px]">
+                    {component.data.name}
+                </h1>
 
-            <h1 class="text-2xl font-bold mt-10 text-[#4e74bb] text-[28px]">
-                {component.data.name}
-            </h1>
+                <nav class="flex gap-2" aria-label="Tabs">
+                    <span
+                        class="tab-link w-[80px] text-center bg-[#4e74bb] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
+                        data-tab="View"
+                    >
+                        View
+                    </span>
+                    <span
+                        class="tab-link w-[80px] text-center bg-[#8bb7ff8c] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
+                        data-tab="HTML"
+                    >
+                        HTML
+                    </span>
+                </nav>
+            </div>
 
             <!-- Content based on active tab -->
             <div class="mt-2">

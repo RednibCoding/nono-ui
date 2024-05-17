@@ -25,6 +25,10 @@ type Props = {
 }
 
 const { component } = Astro.props;
+
+// We dont want the previews to have functional hrefs
+const bodyWithoutHrefs = component.body.replace(/href\s*=\s*(['"])[^'"]*\1/g, "").replace(/target\s*=\s*(['"])[^'"]*\1/g, "");
+
 ---
 
 <DefaultLayout>
@@ -63,7 +67,7 @@ const { component } = Astro.props;
             <div class="mt-6">
                 <div id="tab-content-view" class="tab-content">
                     <!-- View content here -->
-                    <div set:html={component.body} class="bg-[url('/grid.svg')] bg-repeat min-h-[450px] flex justify-center items-center rounded border border-gray-300 p-4 shadow-md transition-shadow duration-300 hover:shadow-lg">
+                    <div set:html={bodyWithoutHrefs} class="bg-[url('/grid.svg')] bg-repeat min-h-[450px] flex justify-center items-center rounded border border-gray-300 p-4 shadow-md transition-shadow duration-300 hover:shadow-lg">
                     </div>
                 </div>
                 <div id="tab-content-html" class="tab-content hidden relative">

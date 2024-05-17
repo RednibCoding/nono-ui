@@ -25,7 +25,9 @@ const props = defineProps({
 const sanitizedContent = computed(() => {
   return props.component.body
     .replace(/<a\b/g, "<span")
-    .replace(/<\/a>/g, "</span>");
+    .replace(/<\/a>/g, "</span>")
+    .replace(/href\s*=\s*(['"])[^'"]*\1/g, "")
+    .replace(/target\s*=\s*(['"])[^'"]*\1/g, "");
 });
 
 const previewContainer = ref(null);

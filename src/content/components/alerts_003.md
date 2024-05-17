@@ -1,6 +1,6 @@
 ---
-name: Error popup
-description: Popup with error message
+name: Error Alert
+description: Standard Alert with Error message
 category: Alerts
 ---
 
@@ -8,7 +8,6 @@ category: Alerts
   <strong class="block font-medium text-red-800"> Something went wrong </strong>
 
   <p class="mt-2 text-sm text-red-700">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quasi assumenda numquam deserunt
-    consectetur autem nihil quos debitis dolor culpa.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quasi assumenda numquam deserunt.
   </p>
 </div>

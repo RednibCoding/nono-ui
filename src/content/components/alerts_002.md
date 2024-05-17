@@ -1,6 +1,6 @@
 ---
-name: Popup with Actions
-description: Standard Popup with Actions
+name: Alert with Actions
+description: Standard Alert with Actions
 category: Alerts
 ---
 

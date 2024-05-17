@@ -1,6 +1,6 @@
 ---
-name: Error popup with icon
-description: Popup with error message and icon
+name: Error Alert with Icon
+description: Standard Alert with Error message and Icon
 category: Alerts
 ---
 
@@ -18,7 +18,6 @@ category: Alerts
   </div>
 
   <p class="mt-2 text-sm text-red-700">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quasi assumenda numquam deserunt
-    consectetur autem nihil quos debitis dolor culpa.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quasi assumenda numquam deserunt.
   </p>
 </div>

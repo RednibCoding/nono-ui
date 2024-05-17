@@ -1,6 +1,6 @@
 ---
-name: Popup
-description: Standard popup
+name: Alert
+description: Standard Alert
 category: Alerts
 ---
 
@@ -26,7 +26,7 @@ category: Alerts
     <div class="flex-1">
       <strong class="block font-medium text-gray-900"> Changes saved </strong>
 
-      <p class="mt-1 text-sm text-gray-700">Your product changes have been saved.</p>
+      <p class="mt-1 text-sm text-gray-700">Your changes have been saved.</p>
     </div>
 
     <button class="text-gray-500 transition hover:text-gray-600">

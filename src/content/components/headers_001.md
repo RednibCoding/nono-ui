@@ -1,8 +1,15 @@
 ---
-name: Header 001
-description: A nice Header
+name: Header Intro Actions
+description: Header with Intro Actions
 category: Headers
 ---
+
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
 
 <header class="bg-gray-50">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">

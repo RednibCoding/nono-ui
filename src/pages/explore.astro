@@ -1,6 +1,6 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import ComponentCard from "../components/ComponentCard.astro";
+import ComponentCard from "../components/ComponentCard.vue";
 import { getCollection } from "astro:content";
 
 const components = await getCollection("components");
@@ -47,10 +47,8 @@ const sortedCategories = ['All', ...Object.keys(categoryMap).filter(c => c !== '
                             class="component-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                             data-category={component.data.category}
                         >
-                            <ComponentCard
-                                displayName={component.data.name}
-                                slug={component.slug}
-                                componentHtml={component.body}
+                            <ComponentCard client:visible
+                                component={component}
                             />
                         </div>
                     ))}

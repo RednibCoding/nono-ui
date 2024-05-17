@@ -61,13 +61,13 @@ const bodyWithoutHrefs = component.body
         <div class="my-10 select-none">
             <nav class="flex gap-2" aria-label="Tabs">
                 <span
-                    class="tab-link w-[80px] text-center bg-[#4e74bb] bg-[#8bb7ff8c] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
+                    class="tab-link w-[80px] text-center bg-[#4e74bb] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
                     data-tab="View"
                 >
                     View
                 </span>
                 <span
-                    class="tab-link w-[80px] text-center bg-[#8bb7ff8c] rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
+                    class="tab-link w-[80px] text-center bg-[#8bb7ff8c] text-white rounded p-2 text-sm font-medium cursor-pointer transition-colors duration-300"
                     data-tab="HTML"
                 >
                     HTML
@@ -148,13 +148,17 @@ const bodyWithoutHrefs = component.body
             if (selectedTab === "View") {
                 tabContentView?.classList.remove("hidden");
                 tabContentHtml?.classList.add("hidden");
-                tabLinks[0].classList.add("bg-[#4e74bb]", "text-white");
-                tabLinks[1].classList.remove("bg-[#4e74bb]", "text-white");
+                tabLinks[0].classList.remove("bg-[#8bb7ff8c]");
+                tabLinks[0].classList.add("bg-[#4e74bb]");
+                tabLinks[1].classList.remove("bg-[#4e74bb]");
+                tabLinks[1].classList.add("bg-[#8bb7ff8c]");
             } else if (selectedTab === "HTML") {
                 tabContentView?.classList.add("hidden");
                 tabContentHtml?.classList.remove("hidden");
-                tabLinks[0].classList.remove("bg-[#4e74bb]", "text-white");
-                tabLinks[1].classList.add("bg-[#4e74bb]", "text-white");
+                tabLinks[1].classList.remove("bg-[#8bb7ff8c]");
+                tabLinks[1].classList.add("bg-[#4e74bb]");
+                tabLinks[0].classList.remove("bg-[#4e74bb]");
+                tabLinks[0].classList.add("bg-[#8bb7ff8c]");
             }
         });
     });
